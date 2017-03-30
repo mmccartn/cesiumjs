@@ -20,3 +20,12 @@ robust debugging messages and have stricter validation for data.
 TODO:  Give examples to add to GruntFile and GulpFiles to support dev/prod builds that auto toggle which js and css
 files to include.
 
+## Changing Versions ##
+```
+cd ./src
+git checkout tags/x.yz
+gulp release
+rm -rf ../Cesium ../CesiumUnminified ../Documentation
+cp ./Build/Cesium ./Build/CesiumUnminified ./Build/Documentation ../
+sed -i 's/a.bc/x.yz/' ../bower.json
+```
